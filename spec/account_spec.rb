@@ -7,10 +7,7 @@ describe Account do
   it 'has an initial balance of 0' do
     expect(account.balance).to eq(0)
   end
-  #
-  # it 'initializes with an empty transaction history' do
-  #   expect(account.transaction_history).to be_empty
-  # end
+
 
   describe '#deposit' do
     before { allow(transaction_history).to receive(:add_transaction) }

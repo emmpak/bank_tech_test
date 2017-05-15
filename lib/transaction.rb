@@ -9,5 +9,3 @@ class Transaction
     @new_balance = new_balance
   end
 end
-
-# @date = Time.now.strftime("%d/%m/%Y")

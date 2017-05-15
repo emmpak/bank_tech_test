@@ -9,13 +9,13 @@ class Account
   end
 
   def deposit(amount)
-    transaction_history.add_transaction(amount)
+    transaction_history.add_transaction(amount: amount, type: 'credit')
     update_balance(amount)
   end
 
   private
   attr_writer :balance
-  
+
   def update_balance(amount)
     self.balance += amount
   end

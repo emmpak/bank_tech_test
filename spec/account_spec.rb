@@ -13,7 +13,7 @@ describe Account do
     before { allow(transaction_history).to receive(:add_transaction) }
 
     it 'adds a credit transaction to the transaction_history' do
-      expect(transaction_history).to receive(:add_transaction).with(50)
+      expect(transaction_history).to receive(:add_transaction).with(amount: 50, type: 'credit')
       account.deposit(50)
     end
 

@@ -9,12 +9,12 @@ class Account
   end
 
   def deposit(amount)
-    transaction_history.add_transaction(amount: amount, type: 'credit')
+    transaction_history.add_transaction(amount, 'credit')
     update_balance(amount)
   end
 
   def withdraw(amount)
-    transaction_history.add_transaction(amount: amount, type: 'debit')
+    transaction_history.add_transaction(amount, 'debit')
     update_balance(-amount)
   end
 

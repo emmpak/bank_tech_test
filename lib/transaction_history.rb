@@ -7,7 +7,7 @@ class TransactionHistory
     @transactions = []
   end
 
-  def add_transaction(amount)
-    self.transactions << transaction_class.new(amount)
+  def add_transaction(amount, type)
+    self.transactions << transaction_class.new(amount, type)
   end
 end

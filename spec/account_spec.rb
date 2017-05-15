@@ -13,7 +13,7 @@ describe Account do
     before { allow(transaction_history).to receive(:add_transaction) }
 
     it 'adds a credit transaction to the transaction_history' do
-      expect(transaction_history).to receive(:add_transaction).with(amount: 50, type: 'credit')
+      expect(transaction_history).to receive(:add_transaction).with(50, 'credit')
       account.deposit(50)
     end
 
@@ -30,7 +30,7 @@ describe Account do
     end
 
     it 'adds a debit transaction to the transaction history' do
-      expect(transaction_history).to receive(:add_transaction).with(amount:50, type: 'debit')
+      expect(transaction_history).to receive(:add_transaction).with(50, 'debit')
       account.withdraw(50)
     end
 

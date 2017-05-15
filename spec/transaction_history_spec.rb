@@ -7,12 +7,12 @@ describe TransactionHistory do
 
   describe '#add_transaction' do
     it 'creates a new transaction' do
-      expect(transaction_class).to receive(:new).with(amount: 50, type: 'credit')
-      transaction_history.add_transaction(amount: 50, type: 'credit')
+      expect(transaction_class).to receive(:new).with(50, 'credit')
+      transaction_history.add_transaction(50, 'credit')
     end
 
     it 'saves the transaction' do
-      transaction_history.add_transaction(transaction)
+      transaction_history.add_transaction(50, 'credit')
       expect(transaction_history.transactions).to include(transaction)
     end
   end

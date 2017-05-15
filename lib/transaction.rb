@@ -2,7 +2,7 @@ class Transaction
 
   attr_reader :amount, :type, :date
 
-  def initialize(amount: amount, type: type)
+  def initialize(amount, type)
     @amount = amount
     @type = type
     @date = Time.now

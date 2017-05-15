@@ -3,7 +3,7 @@ require 'transaction'
 describe Transaction do
   DEPOSIT_AMOUNT = 50
   # let(:Time) { double :Time, now: Time.now}
-  subject(:transaction) { described_class.new(amount: DEPOSIT_AMOUNT, type: 'credit') }
+  subject(:transaction) { described_class.new(DEPOSIT_AMOUNT, 'credit') }
 
   it 'has the specified amount' do
     expect(transaction.amount).to eq(DEPOSIT_AMOUNT)

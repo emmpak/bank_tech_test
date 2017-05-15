@@ -18,6 +18,10 @@ class Account
     update_balance(-amount)
   end
 
+  def print_statement
+    transaction_history.print_transactions
+  end
+
   private
   attr_writer :balance
 

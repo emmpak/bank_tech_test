@@ -14,11 +14,8 @@ class TransactionHistory
   def print_transactions
     statement = "date || credit || debit || balance\n"
     self.transactions.reverse.each do |transaction|
-      if transaction.type == 'credit'
-        statement += "#{transaction.date} || #{transaction.amount} || || #{transaction.new_balance}\n"
-      else
-        statement += "#{transaction.date} || || #{transaction.amount} || #{transaction.new_balance}\n"
-      end
+      type = transaction.type == 'credit' ? "|| #{transaction.amount} ||" : "|| || #{transaction.amount}"
+      statement += "#{transaction.date} " + type + " || #{transaction.new_balance}\n"
     end
     statement
   end

@@ -20,7 +20,7 @@ class Account
   end
 
   def print_statement
-    transaction_history.print_transactions
+    puts transaction_history.print_transactions
   end
 
   private

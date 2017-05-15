@@ -8,3 +8,5 @@ class Transaction
     @date = Time.now
   end
 end
+
+# @date = Time.now.strftime("%d/%m/%Y")

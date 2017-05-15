@@ -22,4 +22,21 @@ describe Account do
       expect(account.balance).to eq 50
     end
   end
+
+  describe '#withdral' do
+    before do
+      allow(transaction_history).to receive(:add_transaction)
+      account.deposit(50)
+    end
+
+    it 'adds a debit transaction to the transaction history' do
+      expect(transaction_history).to receive(:add_transaction).with(amount:50, type: 'debit')
+      account.withdral
+    end
+
+    it 'decreases the balance' do
+      account.withdral(50)
+      expect(account.balance).to eq 0
+    end
+  end
 end

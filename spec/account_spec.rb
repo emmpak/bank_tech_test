@@ -1,14 +1,21 @@
 require 'account'
 
 describe Account do
-  subject(:account) { described_class.new }
-  # let(:statement) { double transactions: [] }
+  let(:transaction_history) { double :transaction_history }
+  subject(:account) { described_class.new(transaction_history: transaction_history) }
 
   it 'has an initial balance of 0' do
-    expect(account.balance).to equal(0)
+    expect(account.balance).to eq(0)
   end
+  #
+  # it 'initializes with an empty transaction history' do
+  #   expect(account.transaction_history).to be_empty
+  # end
 
-  it 'initializes with an empty transaction history' do
-    expect(account.transaction_history).to be_empty
+  describe '#deposit' do
+    it 'adds a credit transaction to the transaction_history' do
+      expect(transaction_history).to receive(:add_transaction).with(50)
+      account.deposit(50)
+    end
   end
 end

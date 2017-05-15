@@ -2,7 +2,7 @@ require 'transaction'
 
 describe Transaction do
   DEPOSIT_AMOUNT = 50
-  subject(:transaction) { described_class.new(DEPOSIT_AMOUNT, 'credit') }
+  subject(:transaction) { described_class.new(DEPOSIT_AMOUNT, 'credit', DEPOSIT_AMOUNT) }
 
   it 'has the specified amount' do
     expect(transaction.amount).to eq(DEPOSIT_AMOUNT)
@@ -16,8 +16,8 @@ describe Transaction do
     expect(transaction.type).to eq 'credit'
   end
 
-  # it 'has a new balance' do
-  #   expect(transaction.new_balance).to eq(DEPOSIT_AMOUNT)
-  # end
+  it 'has a new balance' do
+    expect(transaction.new_balance).to eq(DEPOSIT_AMOUNT)
+  end
 
 end

@@ -11,7 +11,7 @@ describe Account do
 
   describe '#deposit' do
     it 'adds a credit transaction to the transaction_history' do
-      expect(transaction_history).to receive(:add_transaction).with(50, 'credit')
+      expect(transaction_history).to receive(:add_transaction).with(50, 'credit', 50)
       account.deposit(50)
     end
 
@@ -27,7 +27,7 @@ describe Account do
     end
 
     it 'adds a debit transaction to the transaction history' do
-      expect(transaction_history).to receive(:add_transaction).with(50, 'debit')
+      expect(transaction_history).to receive(:add_transaction).with(50, 'debit', 0)
       account.withdraw(50)
     end
 

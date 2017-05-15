@@ -7,14 +7,13 @@ class TransactionHistory
     @transactions = []
   end
 
-  def add_transaction(amount, type)
-    self.transactions << transaction_class.new(amount, type)
+  def add_transaction(amount, type, balance)
+    self.transactions << transaction_class.new(amount, type, balance)
   end
 
   def print_transactions
     statement = "date || credit || debit || balance\n"
     self.transactions.reverse.each do |transaction|
-      p transaction.amount
       if transaction.type == 'credit'
         statement += "#{transaction.date} || #{transaction.amount} || || #{transaction.new_balance}"
       else

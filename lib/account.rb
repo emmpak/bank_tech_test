@@ -1,4 +1,5 @@
 require_relative './transaction_history'
+require_relative './transaction'
 
 class Account
   attr_reader :balance, :transaction_history
@@ -9,13 +10,13 @@ class Account
   end
 
   def deposit(amount)
-    transaction_history.add_transaction(amount, 'credit')
     update_balance(amount)
+    transaction_history.add_transaction(amount, 'credit', self.balance)
   end
 
   def withdraw(amount)
-    transaction_history.add_transaction(amount, 'debit')
     update_balance(-amount)
+    transaction_history.add_transaction(amount, 'debit', self.balance)
   end
 
   def print_statement

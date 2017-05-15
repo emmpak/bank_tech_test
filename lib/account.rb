@@ -2,7 +2,7 @@ require_relative './transaction_history'
 require_relative './transaction'
 
 class Account
-  attr_reader :balance, :transaction_history
+  attr_reader :balance
 
   def initialize(transaction_history: TransactionHistory.new)
     @balance = 0
@@ -24,6 +24,8 @@ class Account
   end
 
   private
+  
+  attr_reader :transaction_history
   attr_writer :balance
 
   def update_balance(amount)

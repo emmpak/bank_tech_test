@@ -10,5 +10,13 @@ class Account
 
   def deposit(amount)
     transaction_history.add_transaction(amount)
+    update_balance(amount)
+  end
+
+  private
+  attr_writer :balance
+  
+  def update_balance(amount)
+    self.balance += amount
   end
 end

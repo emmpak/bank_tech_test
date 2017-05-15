@@ -13,6 +13,11 @@ class Account
     update_balance(amount)
   end
 
+  def withdraw(amount)
+    transaction_history.add_transaction(amount: amount, type: 'debit')
+    update_balance(-amount)
+  end
+
   private
   attr_writer :balance
 

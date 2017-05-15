@@ -23,7 +23,7 @@ describe Account do
     end
   end
 
-  describe '#withdral' do
+  describe '#withdraw' do
     before do
       allow(transaction_history).to receive(:add_transaction)
       account.deposit(50)
@@ -31,11 +31,11 @@ describe Account do
 
     it 'adds a debit transaction to the transaction history' do
       expect(transaction_history).to receive(:add_transaction).with(amount:50, type: 'debit')
-      account.withdral
+      account.withdraw(50)
     end
 
     it 'decreases the balance' do
-      account.withdral(50)
+      account.withdraw(50)
       expect(account.balance).to eq 0
     end
   end

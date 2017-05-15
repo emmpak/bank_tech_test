@@ -19,15 +19,15 @@ describe TransactionHistory do
   end
 
   describe '#print' do
-    # before do
-    #   # let!(:second_transaction) { double :second_transaction, amount: 1000, type: 'credit'}
-    #   # let!(:third_transaction) { double :third_transaction, amount: 500, type: 'debit'}
-    #   transaction_history.transactions << transaction
-    # end
+    let!(:second_transaction) { double :second_transaction, amount: 1000, type: 'credit', date: '16/05/2017', new_balance: 1050}
+    let!(:third_transaction) { double :third_transaction, amount: 500, type: 'debit', date: '17/05/2017', new_balance: 550}
 
     it 'prints a dated history of deposits and withdrawals' do
-      transaction_history.transactions << transaction
-      expect(transaction_history.print_transactions).to eq("date || credit || debit || balance\n#{transaction.date} || #{transaction.amount} || || #{transaction.new_balance}\n")
+      transaction_history.transactions << transaction << second_transaction << third_transaction
+      expect(transaction_history.print_transactions).to eq("date || credit || debit || balance\n" +
+                                                            "#{third_transaction.date} || || #{third_transaction.amount} || #{third_transaction.new_balance}\n" +
+                                                            "#{second_transaction.date} || #{second_transaction.amount} || || #{second_transaction.new_balance}\n" +
+                                                            "#{transaction.date} || #{transaction.amount} || || #{transaction.new_balance}\n")
     end
 
   end

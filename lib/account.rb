@@ -11,12 +11,12 @@ class Account
 
   def deposit(amount)
     update_balance(amount)
-    transaction_history.add_transaction(amount, 'credit', self.balance)
+    transaction_history.add_transaction(amount: amount, type: 'credit', new_balance: self.balance)
   end
 
   def withdraw(amount)
     update_balance(-amount)
-    transaction_history.add_transaction(amount, 'debit', self.balance)
+    transaction_history.add_transaction(amount: amount, type: 'debit', new_balance: self.balance)
   end
 
   def print_statement
@@ -24,7 +24,7 @@ class Account
   end
 
   private
-  
+
   attr_reader :transaction_history
   attr_writer :balance
 

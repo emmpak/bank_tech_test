@@ -28,10 +28,12 @@ I want to be able to see a dated history of deposits and withdrawals
 |Deposit    |
 |Withdrawal |
 
+#### Usage
 
-#### Technology Used
+#### Tech
 * Ruby
-* RSpec
 * Bundle
+* RSpec
 
-####  How to Use
+####  How to Improve
+* Refactor the presentation layer in a different class to achieve separation of concerns
